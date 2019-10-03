@@ -1,0 +1,23 @@
+.todo {
+  margin-top: 9%;
+  width: 100%;
+}
+
+.center {
+  margin: auto;
+  width: 50%;
+}
+
+.inputTodo {
+  width: 100%;
+}
+
+.todoItem {
+  margin: auto;
+  width: 50%;
+  margin-top: 2px;
+  div {
+    display: inline-block;
+    width: 90%;
+  }
+}
