@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -6,20 +7,19 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'Angular-Example';
-  todoItemValue: string;
+  todoItemValue: FormControl;
+  todos: string[] = [];
 
-  todos: string[] = [
-    "Ler",
-    "Jogar",
-    "Fazer nada"
-  ]
-
-  addTodo() {
-    this.todos.push(this.todoItemValue);
+  constructor() {
+    this.todoItemValue = new FormControl("");
   }
 
-  remove(index){
+  addTodo() {
+    this.todos.push(this.todoItemValue.value);
+    this.todoItemValue.reset();
+  }
+
+  remove(index: number){
     this.todos.splice(index, 1);
   }
 }

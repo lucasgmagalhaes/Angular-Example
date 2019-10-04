@@ -2,18 +2,18 @@
   <div class="center">
     <mat-form-field appearance="fill" class="todo">
       <mat-label>Item para fazer</mat-label>
-      <input matInput (input)="todoItemValue = $event.target.value">
-      <button mat-button *ngIf="true" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+      <input matInput [formControl]="todoItemValue">
+      <button mat-button *ngIf="true" matSuffix mat-icon-button aria-label="Clear">
         <mat-icon (click)="addTodo()">done</mat-icon>
       </button>
     </mat-form-field>
   </div>
 
 
-  <mat-card class="todoItem" *ngFor="let todo of todos; let i = index">
+  <mat-card class="todoItem" *ngFor="let todo of todos; index as i">
     <div>{{todo}}</div>
-    <button mat-icon-button aria-label="Example icon-button with a heart icon">
-        <mat-icon (click)="remove(i)" >close</mat-icon>
+    <button mat-icon-button >
+      <mat-icon (click)="remove(i)">close</mat-icon>
     </button>
   </mat-card>
 
